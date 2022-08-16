@@ -1,0 +1,567 @@
+// google fonts
+
+@import url('https://fonts.googleapis.com/css2?family=Cambay:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono:wght@400;500;700&family=Kalam:wght@300;400;700&family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Moonrocks&display=swap');
+
+*{
+    font-family: 'Raleway', sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box; 
+    outline: none; border: none;
+    transition: all .2s linear;
+    text-decoration: none;
+}
+
+$yellow: #FFE900;
+$white: #fff;
+$black: #000;
+$light-color: #aaa;
+$border: .2rem solid rgba(255,255,255,.3);
+
+
+
+@mixin  title-text($titleSize) {
+        font-size: $titleSize;
+        text-transform: uppercase;
+        color: $white;
+}
+
+
+@mixin  grap-text($grapSize) {
+    font-size: $grapSize;
+    line-height: 2;
+    color: $light-color;
+}
+
+@mixin grid($val) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+    gap: 2rem;
+}
+
+
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar{
+        width: 1rem;
+    }
+
+    &::-webkit-scrollbar-track{
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb{
+        border-radius: 5rem;
+        color: $yellow;
+    }
+}
+
+body{
+    background: url(../images/bg.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+section{
+    padding: 3rem 4%;
+}
+
+.btn{
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 1rem;
+    color: $white;
+    border: $border;
+    font-size: 1.7rem;
+    background: none;
+    padding: 1rem 3rem;
+
+
+    &:hover{
+        color: $black;
+        background: $yellow;
+    }
+}
+
+.heading{
+    text-align: center;
+    margin-bottom: 3rem;
+
+    h3{
+    @include title-text(3rem);
+    margin-top: 1rem;
+    text-shadow: 0 .2rem .5rem $black
+    }
+}
+
+// header section
+
+.header{
+    top: 0; left: 0; right: 0;
+    position: fixed;
+    background: $black;
+    z-index: 1000;
+    padding: 1.5rem 3%;
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    // box-shadow: 0 .3rem .5rem rgba(255,255,255,.3);
+}
+
+.header .logo{
+    margin-left: .5rem;
+    font-size: 3rem;
+    color: $white
+}
+
+.header .logo i{
+    font-size: 2.5rem;
+    color: $yellow;
+}
+
+.header .navbar a{
+    font-size: 2rem;
+    color: $white;
+    margin: 0 1rem;
+}
+
+.header .navbar a:hover{
+    color: $yellow;
+}
+
+
+.header .icons div{
+    font-size: 2.5rem;
+    color: $white;
+    margin: 0 1.5rem;
+}
+
+
+.header .icons div:hover{
+    color: $yellow;
+}
+
+.header .icons #menu-btn{
+    display: none;
+}
+
+.header .search-form{
+    height: 7rem;
+    padding: 0 2rem;
+    border-top: $border;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 99%; left: 0; right: 0;
+    background: $black;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+
+    &.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)
+    }
+
+    input{
+        width: 100%;
+        background: none;
+        text-transform: none;
+        color: $white;
+        font-size: 1.6rem;
+    }
+
+    label{
+        font-size: 2.4rem;
+        color: $white;
+        cursor: pointer;
+    
+        &:hover{
+            color: $yellow;
+        }
+    }
+
+   
+}
+
+// home section
+
+.home{
+    background: url(../images/home-bg.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-top: 7rem;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
+.home .image{
+    flex: 1 1 40rem;
+
+  img{
+    width: 100%;
+  }
+}
+
+.home .content{
+    flex: 1 1 40rem;
+    text-align: center;
+
+    h3{
+        font-size: 5rem;
+        color: $white;
+        margin-bottom: 1rem;
+    
+        span{
+            color: $yellow;
+        }
+    }
+
+    p{
+        font-size: 1.9rem;
+        color: $light-color;
+        padding: 0 1rem;
+        line-height: 1.5;
+    }
+}
+
+// features section
+
+.features{
+
+    @include grid(25rem);
+
+    .box{
+        padding: 2rem;
+        text-align: center;
+    
+        i{
+            height: 7rem;
+            width: 7rem;
+            line-height: 7rem;
+            font-size: 2.5rem;
+            background: $yellow;
+            color: $black;
+            border-radius: .5rem;
+            margin-bottom: 2rem;
+        }
+
+        h3{
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            @include title-text(2rem);
+        }
+
+        p{
+            @include grap-text(1.5rem)
+        }
+
+
+    }
+}
+
+// menu section
+
+.menu{
+
+    .box-container{
+        @include grid(25rem);
+
+        .box{
+            text-align: center;
+        
+
+            img{
+                height: 25rem; 
+                width: 25rem; 
+                object-fit: cover;
+            
+                
+                &:hover{
+                    transform: translateY(1rem);
+                }
+
+            }
+        
+            .content{
+                padding: 1rem 0;
+            
+                h3{
+                    @include title-text(2rem);
+                    text-transform: none;
+                }
+                
+                .stars{
+                    margin-bottom: 1rem;
+                    margin-top: 1.5rem;
+                     i{
+                        font-size: 1.8rem;
+                        color: $yellow;
+                     }
+                }
+            }
+        
+            .price{
+                @include grap-text(2rem);
+            }
+        }
+    }
+}
+
+// about section
+
+.about{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap-reverse;
+
+    .image{
+        flex: 1 1 30rem;
+    
+        img{
+            width: 100%;
+        }
+    }
+
+    .content{
+        flex: 1 1 30rem;
+    
+        .title{
+            @include title-text(3.5rem);
+        
+            span{
+                color: $yellow;
+            }
+        }
+
+        p{
+            padding: 2rem 0;
+            @include grap-text(1.5rem);
+        }
+    
+        .icons{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        
+            h3{
+                flex: 1 1 16rem;
+                @include grap-text(2rem);
+                font-weight: 400;
+            
+                i{
+                    padding-right: .5rem;
+                    color: $yellow;
+                }
+            }
+        }
+    }
+
+
+}
+
+// reviews section
+
+
+.reviews-slider .slide{
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: #222;
+    border-radius: .5rem;
+     margin-bottom: 6rem;
+    user-select: none;
+}
+
+.reviews-slider .slide p{
+    @include grap-text(1.5rem);
+}
+
+
+
+.reviews-slider .slide img{
+    height: 7rem;
+    width: 7rem;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    border: .2rem solid #fff;
+}
+
+.reviews-slider .slide h3{
+    @include title-text(2rem);
+}
+
+
+.reviews-slider .slide .stars i{
+    font-size: 1.7rem;
+    color: $yellow;
+    margin-top: 2rem;
+}
+
+.swiper-pagination-bullet{
+    background-color: $yellow !important;
+    width: 2rem !important;
+    height: 2rem !important;
+    border-radius: 50% !important;
+}
+
+// contact section
+
+.contact{
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+
+    .row{
+        flex: 1 1 30rem;
+    
+        h1{
+            @include title-text(3rem);
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 .2rem .5rem $black 
+        }
+
+    }
+
+    .form{
+        flex: 1 1  30rem;
+    
+        .icons{
+
+         i{
+            color: $yellow;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+        
+        }
+            h1{
+                @include title-text(3rem);
+                margin-top: 1rem;
+                margin-bottom: 2rem;
+                text-shadow: 0 .2rem .5rem $black 
+            }
+
+            h3{
+                @include grap-text(2rem);
+                color: #fff;
+            }
+
+            p{
+                @include grap-text(1.5rem);
+                
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+    
+        }
+    }
+}
+
+
+// footer section
+
+.footer{
+    text-align: center;
+    background: linear-gradient(transparent, $black);
+
+    .links{
+        a{
+            margin: 1rem;
+        }
+    }
+
+    .credit{
+        @include title-text(2rem);
+        margin-top: 1.5rem;
+    
+        span{
+            color: $yellow;
+        }
+    }
+
+    .social-links i{
+        cursor: pointer;
+        margin: 0 .5rem;
+        font-size: 3rem;
+        color: $white;
+        margin-top: 2rem;
+   
+        &:hover{
+            color: $yellow;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+// media queries
+
+@media(max-width:991px){
+
+    html{
+        font-size: 55%;
+    }
+
+}
+
+@media(max-width:768px){
+
+    html{
+        font-size: 48%;
+    }
+
+    section{
+        padding: 3rem 2rem;
+    }
+
+    .header{
+
+       .icons #menu-btn{
+            display: inline-block;
+        }
+
+        .navbar{
+            position: absolute;
+            top: 99%; left: 0; right: 0;
+            background: $black;
+            border-top: $border;
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+
+            &.active{
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)
+            }
+            
+            a{
+                display: block;
+                margin: 2rem;
+                text-align: center;
+            }
+        }
+    }
+
+    .home .content h3{
+        font-size: 4rem;
+    }
+
+}
+
